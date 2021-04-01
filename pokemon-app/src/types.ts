@@ -4,4 +4,5 @@ type Pokemon = {
     weight: number
     height: number
 }
+
 export type {Pokemon}
