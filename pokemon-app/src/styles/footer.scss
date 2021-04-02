@@ -1,0 +1,14 @@
+@import 'variables';
+
+footer {
+    height: max-content;
+    border-top-left-radius: $header-footer-border-radius;
+    border-top-right-radius: $header-footer-border-radius;
+    background-color: $white-color;
+    box-shadow: 0px -3px 10px #5858580f;
+
+    .label {
+        margin: 20px 10px;
+        font-size: 20px;
+    }
+}

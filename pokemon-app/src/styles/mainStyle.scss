@@ -1,0 +1,36 @@
+@import 'variables';
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: $main-font-family;
+    transition: 0.3s all ease;
+    letter-spacing: 0.02em;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    min-width: $min-screen-width;
+    background-color: $body-bg-color;
+}
+
+.f-c {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.wrapper {
+    min-width: $min-screen-width;
+    max-width: $max-container-width;
+    width: 80%;
+}
+
+@media screen and (max-width: 1280px) {
+    .wrapper { width: 85%; }
+}
+  
+@media screen and (max-width: 768px) {
+    .wrapper { width: 100%; }
+}
