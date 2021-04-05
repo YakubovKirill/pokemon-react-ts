@@ -18,7 +18,7 @@ function App() {
   const dispatch = useDispatch()
 
   useEffect(() => {
-      const limit = 5
+      const limit = 100
       const startFrom = 0
       const getPokemonsUrl = `https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${startFrom}`
       
