@@ -1,8 +1,8 @@
 type Pokemon = {
     id: number
     name: string
-    weight: number
-    height: number
+    image: string
+    abilities: any[]
 }
 
 export type {Pokemon}

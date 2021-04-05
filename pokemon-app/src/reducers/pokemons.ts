@@ -5,6 +5,10 @@ const pokemonsReducer = (state: Pokemon[] = [], action: any): Pokemon[] => {
         case 'ADD_POKEMON': 
             state.push(action.payload)
             return state
+        case 'ADD_POKEMON_ARR':
+            state = []
+            state = [...action.payload]
+            return state
         default:
             return state
     }

@@ -1,5 +1,5 @@
 import React from 'react'
-import { useParams, RouteComponentProps, Link } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 
 interface PokemonParams {
     id: string
