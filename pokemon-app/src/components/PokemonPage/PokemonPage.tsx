@@ -5,7 +5,7 @@ interface PokemonParams {
     id: string
 }
 
-export const Pokemon: React.FC = () => {
+export const PokemonPage: React.FC = () => {
     const { id } = useParams() as PokemonParams
     const randomID: number = Math.floor(Math.random() * 10)
     const randomPath = `/pokemon/${randomID}`
