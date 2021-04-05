@@ -2,7 +2,7 @@ type Pokemon = {
     id: number
     name: string
     image: string
-    abilities: string[]
+    abilities: any[]
 }
 
 export type {Pokemon}

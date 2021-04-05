@@ -1,12 +1,14 @@
-import React from 'react'
-import { RootStateOrAny, useSelector } from 'react-redux'
-import { PokemonCard } from './PokemonCard'
+import React, { useEffect, useState } from 'react'
+import { RootStateOrAny, useDispatch, useSelector } from 'react-redux'
+import { Pokemons } from './Pokemons'
+import { Pokemon } from '../../types'
 
 export const Gallery: React.FC = () => {
-    const pokemons = useSelector((state: RootStateOrAny) => state.pokemons)
+    const pokemons: Pokemon[] = useSelector((state: RootStateOrAny) => state.pokemons)
+
     return (
-    <div className='gallery'>
-        { pokemons.length ? pokemons[0].name : '' }
-    </div>
+        <div className='gallery'>
+            { pokemons.length ? <Pokemons /> : '' }
+        </div>
     )
 }
