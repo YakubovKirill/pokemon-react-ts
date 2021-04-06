@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { RootStateOrAny, useSelector } from 'react-redux'
 import { Pokemon } from '../../types'
 import { PokemonCard } from './PokemonCard'
