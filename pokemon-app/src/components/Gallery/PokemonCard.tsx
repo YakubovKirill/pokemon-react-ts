@@ -10,7 +10,7 @@ const Ability: React.FC<PropsWithChildren<any>> = (ability: any) => {
     )
 }
 
-export const PokemonCard: React.FC<PropsWithChildren<Pokemon>> = (pokemon: Pokemon) => {
+const PokemonCard: React.FC<PropsWithChildren<Pokemon>> = (pokemon: Pokemon) => {
     const abilitiesArr: any[] = []
     const pokemonPath = `/pokemon/${pokemon.id}`
     let key = 0
@@ -34,3 +34,5 @@ export const PokemonCard: React.FC<PropsWithChildren<Pokemon>> = (pokemon: Pokem
         </Link>
     )
 }
+
+export default PokemonCard

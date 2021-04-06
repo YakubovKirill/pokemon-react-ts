@@ -1,9 +1,9 @@
 import React from 'react'
 import { RootStateOrAny, useSelector } from 'react-redux'
 import { Pokemon } from '../../types'
-import { PokemonCard } from './PokemonCard'
+import PokemonCard from './PokemonCard'
 
-export const Pokemons: React.FC = () => {
+const Pokemons: React.FC = () => {
     const pokemons: Pokemon[] = useSelector((state: RootStateOrAny) => state.pokemons)
     const pokemonComponents: any[] = []
     pokemons.forEach((pokemon) => {
@@ -20,3 +20,5 @@ export const Pokemons: React.FC = () => {
         </>
     )
 }
+
+export default Pokemons

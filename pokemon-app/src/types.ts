@@ -5,7 +5,7 @@ export type Pokemon = {
     abilities: any[]
 }
 
-export type ActionType = (payload: Pokemon[]) => {
+export type ActionType = {
     type: Actions
     payload: Pokemon[]
 }

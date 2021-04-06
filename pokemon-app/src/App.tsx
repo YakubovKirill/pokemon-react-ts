@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import './styles/mainStyle.scss'
 import './styles/footer.scss'
-import { Header } from './components/Header/Header';
-import { Footer } from './components/Footer/Footer';
-import { Gallery } from './components/Gallery/Gallery';
+import Header from './components/Header/Header';
+import Footer from './components/Footer/Footer';
+import Gallery from './components/Gallery/Gallery';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { PokemonPage } from './components/PokemonPage/PokemonPage';
+import PokemonPage from './components/PokemonPage/PokemonPage';
 import { connect, useDispatch } from 'react-redux';
 import axios from 'axios';
 import { Pokemon } from './types';
