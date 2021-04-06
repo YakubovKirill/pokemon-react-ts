@@ -1,6 +1,6 @@
 import React from 'react'
 import { RootStateOrAny, useSelector } from 'react-redux'
-import { Pokemons } from './Pokemons'
+import Pokemons from './Pokemons'
 import { Pokemon } from '../../types'
 import '../../styles/gallery.scss'
 
