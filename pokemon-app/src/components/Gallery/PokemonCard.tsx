@@ -1,4 +1,4 @@
-import React, { PropsWithChildren } from 'react'
+import React, { PropsWithChildren, useMemo } from 'react'
 import { Link } from 'react-router-dom'
 import { AbilityColors, Pokemon, AbilityType } from '../../types'
 
@@ -31,4 +31,4 @@ const PokemonCard: React.FC<PropsWithChildren<Pokemon>> = (pokemon: Pokemon) => 
     )
 }
 
-export default PokemonCard
+export default React.memo(PokemonCard)

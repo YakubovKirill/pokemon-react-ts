@@ -1,5 +1,5 @@
 import React from 'react'
-import { RootStateOrAny, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { getAllPokemons } from '../../selectors'
 import { Pokemon } from '../../types'
 import PokemonCard from './PokemonCard'
@@ -22,4 +22,4 @@ const Pokemons: React.FC = () => {
     )
 }
 
-export default Pokemons
+export default React.memo(Pokemons)

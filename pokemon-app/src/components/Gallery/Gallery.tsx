@@ -1,5 +1,5 @@
 import React from 'react'
-import { RootStateOrAny, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import Pokemons from './Pokemons'
 import { Pokemon } from '../../types'
 import '../../styles/gallery.scss'
@@ -14,4 +14,4 @@ const Gallery: React.FC = () => {
     )
 }
 
-export default Gallery
+export default React.memo(Gallery)
