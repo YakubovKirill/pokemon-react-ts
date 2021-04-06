@@ -1,6 +1,6 @@
 import React from 'react'
 import { useParams, Link } from 'react-router-dom';
-import '../../styles/aboutPage.css'
+import '../../styles/aboutPage.scss'
 
 interface PokemonParams {
     id: string

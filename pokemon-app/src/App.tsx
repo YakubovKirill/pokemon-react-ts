@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import './App.css';
-import './styles/mainStyle.css'
-import './styles/footer.css'
-import './styles/gallery.css'
+import './styles/mainStyle.scss'
+import './styles/footer.scss'
 import { Header } from './components/Header/Header';
 import { Footer } from './components/Footer/Footer';
 import { Gallery } from './components/Gallery/Gallery';
