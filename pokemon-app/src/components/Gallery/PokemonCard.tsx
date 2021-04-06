@@ -1,9 +1,9 @@
 import React, { PropsWithChildren } from 'react'
 import { Link } from 'react-router-dom'
-import { Pokemon } from '../../types'
+import { AbilityColors, Pokemon, AbilityType } from '../../types'
 
-const Ability: React.FC<PropsWithChildren<any>> = (ability: any) => {
-    const abilityColor = (ability.is_hidden) ? 'red': 'green'
+const Ability: React.FC<PropsWithChildren<any>> = (ability: AbilityType) => {
+    const abilityColor = (ability.is_hidden) ? AbilityColors.RED: AbilityColors.GREEN
     const abilityClasses = `ability ${abilityColor} f-c`
     return (
         <div className={abilityClasses}><span>{ability.ability.name}</span></div>
@@ -11,12 +11,11 @@ const Ability: React.FC<PropsWithChildren<any>> = (ability: any) => {
 }
 
 const PokemonCard: React.FC<PropsWithChildren<Pokemon>> = (pokemon: Pokemon) => {
-    const abilitiesArr: any[] = []
+    const abilitiesArr: JSX.Element[] = []
     const pokemonPath = `/pokemon/${pokemon.id}`
-    let key = 0
+    
     pokemon.abilities.forEach((ability: any) => {
-        const component = <Ability key={key} {...ability} />
-        key ++
+        const component: JSX.Element = <Ability key={ability.ability.name} {...ability} />
         abilitiesArr.push(component)
     })
     

@@ -1,13 +1,14 @@
 import React from 'react'
 import { RootStateOrAny, useSelector } from 'react-redux'
+import { getAllPokemons } from '../../selectors'
 import { Pokemon } from '../../types'
 import PokemonCard from './PokemonCard'
 
 const Pokemons: React.FC = () => {
-    const pokemons: Pokemon[] = useSelector((state: RootStateOrAny) => state.pokemons)
-    const pokemonComponents: any[] = []
+    const pokemons: Pokemon[] = useSelector(getAllPokemons)
+    const pokemonComponents: JSX.Element[] = []
     pokemons.forEach((pokemon) => {
-        const component = <PokemonCard 
+        const component: JSX.Element = <PokemonCard 
             key={pokemon.id}
             {...pokemon}
         />
