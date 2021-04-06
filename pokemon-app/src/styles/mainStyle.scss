@@ -28,6 +28,12 @@ html, body {
     width: 80%;
 }
 
+a {
+    text-decoration: none;
+    color: $text-color-black;
+    &:visited, &:hover, &:active {color: $text-color-black;}
+}
+
 @media screen and (max-width: 1280px) {
     .wrapper { width: 85%; }
 }

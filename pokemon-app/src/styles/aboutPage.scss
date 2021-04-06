@@ -1,0 +1,12 @@
+@import 'variables';
+
+.about {
+    width: 90%;
+    max-width: 700px;
+    height: 1000px;
+    background-color: #fff;
+    margin: 30px 0px;
+    border-radius: $header-footer-border-radius;
+    box-shadow: 0px 5px 10px #5858580f;
+    padding: 20px;
+}
