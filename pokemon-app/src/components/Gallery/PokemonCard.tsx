@@ -11,13 +11,10 @@ const Ability: React.FC<PropsWithChildren<any>> = (ability: AbilityType) => {
 }
 
 const PokemonCard: React.FC<PropsWithChildren<Pokemon>> = (pokemon: Pokemon) => {
-    const abilitiesArr: JSX.Element[] = []
-    const pokemonPath = `/pokemon/${pokemon.id}`
-    
-    pokemon.abilities.forEach((ability: any) => {
-        const component: JSX.Element = <Ability key={ability.ability.name} {...ability} />
-        abilitiesArr.push(component)
+    const abilitiesArr: JSX.Element[] = pokemon.abilities.map((ability) => {
+        return <Ability key={ability.ability.name} {...ability} />
     })
+    const pokemonPath = `/pokemon/${pokemon.id}`
     
     return (
         <Link to={pokemonPath}>
