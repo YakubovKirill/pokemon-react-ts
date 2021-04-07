@@ -4,17 +4,22 @@ import { Link } from 'react-router-dom'
 import { ABILITY_COLORS, Pokemon, AbilityType } from '../../types'
 
 const Ability: React.FC<PropsWithChildren<AbilityType>> = (ability: AbilityType): JSX.Element => {
-    const abilityColor = (ability.is_hidden) ? ABILITY_COLORS.RED: ABILITY_COLORS.GREEN
+    const abilityColor = useMemo(() => {
+        return (ability.is_hidden) ? ABILITY_COLORS.RED: ABILITY_COLORS.GREEN
+    }, [ability])
     const abilityClasses = `ability ${abilityColor} f-c`
+
     return (
         <div className={abilityClasses}><span>{ability.ability.name}</span></div>
     )
 }
 
 const PokemonCard: React.FC<PropsWithChildren<Pokemon>> = (pokemon: Pokemon) => {
-    const abilitiesArr: JSX.Element[] = pokemon.abilities.map((ability) => {
-        return <Ability key={ability.ability.name} {...ability} />
-    })
+    const abilitiesArr: JSX.Element[] = useMemo(() => {
+        return pokemon.abilities.map((ability) => {
+            return <Ability key={ability.ability.name} {...ability} />
+        })
+    }, [pokemon.abilities])
     const pokemonPath = `/pokemon/${pokemon.id}`
     
     return (

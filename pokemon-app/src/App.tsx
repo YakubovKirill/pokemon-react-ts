@@ -47,7 +47,7 @@ function App() {
   useEffect(() => {
     // Put all pokemons to redux store
     dispatch(addPokemonArr(pokemons))
-  }, [pokemons])
+  }, [pokemons, dispatch])
 
   return (
     <Router>
