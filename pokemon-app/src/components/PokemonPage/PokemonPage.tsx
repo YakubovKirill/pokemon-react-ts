@@ -1,5 +1,6 @@
 import React from 'react'
 import { useParams, Link } from 'react-router-dom';
+import { PATH } from '../../constants';
 
 import '../../styles/aboutPage.scss'
 
@@ -11,6 +12,7 @@ const PokemonPage: React.FC = () => {
     const { id } = useParams() as PokemonParams
     const randomID: number = Math.floor(Math.random() * 10)
     const randomPath = `/pokemon/${randomID}`
+    const pokemonImage = `${PATH.POKEMON_IMAGE}${id}.png`
 
     return (
         <div className='about'>
@@ -21,7 +23,7 @@ const PokemonPage: React.FC = () => {
             </div>
             <div className='pokemon-image'>
                 <div className='img-wrap f-c'>
-                    <img src="https://pokeres.bastionbot.org/images/pokemon/2.png" alt="2" />
+                    <img src={pokemonImage} alt={id} />
                 </div>
             </div>
             <div className='abilities f-c'>
