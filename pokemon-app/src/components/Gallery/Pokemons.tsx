@@ -8,7 +8,7 @@ import PokemonCard from './PokemonCard'
 const Pokemons: React.FC = () => {
     const pokemons: Pokemon[] = useSelector(getAllPokemons)
     const pokemonComponents: JSX.Element[] = []
-    pokemons.forEach((pokemon) => {
+    pokemons.forEach((pokemon: Pokemon) => {
         const component: JSX.Element = <PokemonCard 
             key={pokemon.id}
             {...pokemon}

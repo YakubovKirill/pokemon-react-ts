@@ -1,5 +1,6 @@
 export const LIMIT = 100 as const
 export const START_POKEMONS_FROM = 0 as const
+export const PROJECT_NAME = 'Pokemonix'
 
 export const PATH = {
     DEFAULT: '/',

@@ -1,4 +1,4 @@
-import axios, { AxiosResponse } from 'axios';
+import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { connect, useDispatch } from 'react-redux';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
@@ -17,6 +17,11 @@ import { LIMIT, PATH, START_POKEMONS_FROM } from './constants';
 function App() {
   const [pokemons, setPokemons] = useState<Pokemon[]>([] as Pokemon[])
   const dispatch = useDispatch()
+  const firstLetterUpperCase = (word: string) => {
+    let wordArr = word.split('')
+    wordArr[0] = wordArr[0].toUpperCase()
+    return wordArr.join('')
+  }
 
   useEffect(() => {
       const getPokemonsUrl = `${PATH.POKEMON_API}?limit=${LIMIT}&offset=${START_POKEMONS_FROM}`
@@ -45,7 +50,7 @@ function App() {
                 baseExperience: response.base_experience,
                 height: response.height,
                 id: response.id,
-                name: response.name,
+                name: firstLetterUpperCase(response.name),
                 stats: response.stats,
                 types: response.types,
                 weight: response.weight

@@ -16,7 +16,7 @@ const Ability: React.FC<PropsWithChildren<AbilityType>> = (ability: AbilityType)
 
 const PokemonCard: React.FC<PropsWithChildren<Pokemon>> = (pokemon: Pokemon) => {
     const abilitiesArr: JSX.Element[] = useMemo(() => {
-        return pokemon.abilities.map((ability) => {
+        return pokemon.abilities.map((ability: AbilityType) => {
             return <Ability key={ability.ability.name} {...ability} />
         })
     }, [pokemon.abilities])

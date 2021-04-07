@@ -1,3 +1,6 @@
+//Types
+
+// Main pokemon type
 export type Pokemon = {
     abilities: AbilityType[]
     baseExperience: number
@@ -27,10 +30,6 @@ export type PokemonInput = {
     url: string
 }
 
-export interface IInputPokemonsData {
-    results: PokemonInput[]
-}
-
 export type PokemonStat = {
     base_stat: number
     stat: {
@@ -44,6 +43,12 @@ export type PokemonType = {
     }
 }
 
+// Interfaces
+
+export interface IInputPokemonsData {
+    results: PokemonInput[]
+}
+
 export interface IInputPokemon {
     abilities: AbilityType[]
     base_experience: number
@@ -54,6 +59,8 @@ export interface IInputPokemon {
     types: PokemonType[]
     weight: number
 }
+
+// Enums
 
 export enum ACTIONS {
     ADD_POKEMON_ARR
