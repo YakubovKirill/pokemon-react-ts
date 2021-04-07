@@ -1,6 +1,4 @@
-$main-font-size: 17px;
 $main-font-family: 'Roboto', sans-serif;
-$logo-font-size: 30px;
 
 $min-screen-width: 300px;
 $max-container-width: 1200px;
@@ -12,9 +10,13 @@ $white-color: #fff;
 $border-red: #f92121;
 $border-green: #4cee54;
 $stat-background-color: rgb(111, 117, 204);
+$stat-color: rgb(113, 245, 108);
 
 $text-color-black: black;
 $text-color-white: rgb(238, 234, 234);
 
-$font-size-30: 30px;
-$font-size-20: 20px;
+$about-box-shadow: 0px 5px 10px #5858580f;
+$info-block-shadow: 0px 3px 15px #4c4c4c36;
+$footer-box-shadow: 0px -3px 10px #5858580f;
+$pokemon-card-box-shadow: 0px 10px 15px #84848452;
+$pokemon-card-hover-box-shadow: 5px 15px 15px #68686852;

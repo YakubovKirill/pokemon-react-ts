@@ -1,24 +1,25 @@
-import React, { useEffect, useState } from 'react';
-import './styles/mainStyle.scss'
-import './styles/footer.scss'
+import axios from 'axios';
+import { useEffect, useState } from 'react';
+import { connect, useDispatch } from 'react-redux';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import Gallery from './components/Gallery/Gallery';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import PokemonPage from './components/PokemonPage/PokemonPage';
-import { connect, useDispatch } from 'react-redux';
-import axios from 'axios';
 import { Pokemon } from './types';
 import { addPokemonArr } from './actions';
 
+import './styles/mainStyle.scss'
+import './styles/footer.scss'
+import { LIMIT, PATH, START_POKEMONS_FROM } from './constants';
+
 function App() {
-  const [pokemons, setPokemons]: any[] = useState([])
+  const [pokemons, setPokemons] = useState<Pokemon[]>([] as Pokemon[])
   const dispatch = useDispatch()
 
   useEffect(() => {
-      const limit = 100
-      const startFrom = 0
-      const getPokemonsUrl = `https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${startFrom}`
+      const getPokemonsUrl = `${PATH.POKEMON_API}?limit=${LIMIT}&offset=${START_POKEMONS_FROM}`
       
       // Clear array of previous version
       setPokemons([])
@@ -34,10 +35,10 @@ function App() {
               const currentPokemon: Pokemon = {
                   id: data.data.id,
                   name: data.data.name,
-                  image: `https://pokeres.bastionbot.org/images/pokemon/${data.data.id}.png`,
+                  image: `${PATH.POKEMON_IMAGE}${data.data.id}.png`,
                   abilities: data.data.abilities
               }     
-              setPokemons((prev: any[]) => [...prev, currentPokemon])
+              setPokemons((prev: Pokemon[]) => [...prev, currentPokemon])
           }) 
         })
       })

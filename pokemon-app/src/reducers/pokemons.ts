@@ -1,8 +1,8 @@
-import {Actions, ActionType, Pokemon} from '../types'
+import {ACTIONS, ActionType, Pokemon} from '../types'
 
 const pokemonsReducer = (state: Pokemon[] = [], action: ActionType): Pokemon[] => {
     switch (action.type) {
-        case Actions.ADD_POKEMON_ARR:
+        case ACTIONS.ADD_POKEMON_ARR:
             state = []
             state = [...action.payload]
             return state

@@ -1,5 +1,6 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
+
 import { getAllPokemons } from '../../selectors'
 import { Pokemon } from '../../types'
 import PokemonCard from './PokemonCard'

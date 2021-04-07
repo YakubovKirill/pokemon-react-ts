@@ -1,4 +1,5 @@
 @import 'variables';
+@import 'font-size.module.scss';
 
 .about {
     width: 90%;
@@ -7,12 +8,12 @@
     background-color: $white-color;
     margin: 30px 0px;
     border-radius: $header-footer-border-radius;
-    box-shadow: 0px 5px 10px #5858580f;
+    box-shadow: $about-box-shadow;
     padding: 20px;
     .pokemon-header {
         width: 100%;
         height: max-content;
-        font-size: $font-size-30;
+        font-size: $large-font-size;
         span {
             margin: 10px 0px;
         }
@@ -33,7 +34,7 @@
         flex-wrap: wrap;
         margin: 20px 0px;
         .ability {
-            font-size: $font-size-20;
+            font-size: $medium-font-size;
             margin: 10px;
             height: max-content;
             width: max-content;
@@ -48,12 +49,11 @@
             span { margin: 10px 5px;}
         }
         .type {
-            background-color: rgb(113, 245, 108);
+            background-color: $stat-color;
             border-radius: 5px;
             padding: 5px;
             margin: 0px 10px;
-            $font-size-17: 17px;
-            font-size: $font-size-17;
+            font-size: $text-font-size;
             padding: 5px 10px;
             &:hover { cursor: pointer;}
         }
@@ -64,11 +64,12 @@
         width: 100%;
         flex-wrap: wrap;
         .info-block {
-            background-color: indianred;
+            box-shadow: $info-block-shadow;
             width: 250px;
-            height: 300px;
+            height: max-content;
             border-radius: 10px;
             margin: 10px;
+            overflow: hidden;
             table {
                 width: 100%;
                 padding: 10px;
@@ -82,7 +83,7 @@
                 height: max-content;
                 span {
                     margin: 15px 0px;
-                    font-size: $font-size-20;
+                    font-size: $medium-font-size;
                 }
             }
             .info-text {
@@ -93,7 +94,7 @@
                 display: flex;
                 .stat-field {
                     height: 10px;
-                    background-color: lawngreen;
+                    background-color: $stat-color;
                     margin: 10px;
                     border-radius: 5px;
                 }
@@ -111,7 +112,7 @@
 
 @media screen and (max-width: 768px) {
     .about .pokemon-header {
-        font-size: $font-size-30 - 5px;
+        font-size: $large-font-size - 5px;
     }
 
     .about .pokemon-image .img-wrap img {

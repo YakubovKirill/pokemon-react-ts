@@ -1,9 +1,10 @@
 import React, { PropsWithChildren, useMemo } from 'react'
 import { Link } from 'react-router-dom'
-import { AbilityColors, Pokemon, AbilityType } from '../../types'
 
-const Ability: React.FC<PropsWithChildren<any>> = (ability: AbilityType) => {
-    const abilityColor = (ability.is_hidden) ? AbilityColors.RED: AbilityColors.GREEN
+import { ABILITY_COLORS, Pokemon, AbilityType } from '../../types'
+
+const Ability: React.FC<PropsWithChildren<AbilityType>> = (ability: AbilityType): JSX.Element => {
+    const abilityColor = (ability.is_hidden) ? ABILITY_COLORS.RED: ABILITY_COLORS.GREEN
     const abilityClasses = `ability ${abilityColor} f-c`
     return (
         <div className={abilityClasses}><span>{ability.ability.name}</span></div>

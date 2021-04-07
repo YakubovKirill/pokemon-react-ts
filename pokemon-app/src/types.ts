@@ -6,7 +6,7 @@ export type Pokemon = {
 }
 
 export type ActionType = {
-    type: Actions
+    type: ACTIONS
     payload: Pokemon[]
 }
 
@@ -19,11 +19,11 @@ export type AbilityType = {
     slot: number
 }
 
-export enum Actions {
+export enum ACTIONS {
     ADD_POKEMON_ARR
 }
 
-export enum AbilityColors {
+export enum ABILITY_COLORS {
     RED = 'red',
     GREEN = 'green'
 }
