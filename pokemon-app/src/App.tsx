@@ -12,7 +12,11 @@ import { addPokemonArr } from './actions';
 
 import './styles/mainStyle.scss'
 import './styles/footer.scss'
-import { LIMIT, PATH, START_POKEMONS_FROM } from './constants';
+
+const LIMIT = process.env.REACT_APP_LIMIT
+const START_FROM = process.env.REACT_APP_START_POKEMONS_FROM
+const POKEMON_API_PATH = process.env.REACT_APP_PATH_POKEMON_API
+const POKEMON_IMG_PATH = process.env.REACT_APP_PATH_POKEMON_IMAGE
 
 function App() {
   const [pokemons, setPokemons] = useState<Pokemon[]>([] as Pokemon[])
@@ -24,7 +28,7 @@ function App() {
   }
 
   useEffect(() => {
-      const getPokemonsUrl = `${PATH.POKEMON_API}?limit=${LIMIT}&offset=${START_POKEMONS_FROM}`
+      const getPokemonsUrl = `${POKEMON_API_PATH}?limit=${LIMIT}&offset=${START_FROM}`
       
       // Clear array of previous version
       setPokemons([])
@@ -59,7 +63,7 @@ function App() {
           }).then((data) => {
             const currentPokemon: Pokemon = {
               ...data.data,
-              image: `${PATH.POKEMON_IMAGE}${data.data.id}.png`
+              image: `${POKEMON_IMG_PATH}${data.data.id}.png`
             }
             setPokemons((prev: Pokemon[]) => [...prev, currentPokemon])
           })

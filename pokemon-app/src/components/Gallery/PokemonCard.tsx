@@ -20,10 +20,10 @@ const PokemonCard: React.FC<PropsWithChildren<Pokemon>> = (pokemon: Pokemon) => 
             return <Ability key={ability.ability.name} {...ability} />
         })
     }, [pokemon.abilities])
-    const pokemonPath = `/pokemon/${pokemon.id}`
+    const POKEMON_PATH = `/pokemon/${pokemon.id}`
     
     return (
-        <Link to={pokemonPath}>
+        <Link to={POKEMON_PATH}>
             <div className='pokemon-card'>
                 <div className='pokemon-image f-c'>
                     <img src={pokemon.image} alt={pokemon.name} />
