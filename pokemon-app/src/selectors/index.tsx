@@ -16,3 +16,8 @@ export const getPokemonByID = (id: number) => createSelector(
         return pokemon.id === id
     })
 )
+
+export const getPokemonsLength = createSelector(
+    selectAllPokemons,
+    pokemons => pokemons.length
+)

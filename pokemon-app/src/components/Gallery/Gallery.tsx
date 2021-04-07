@@ -2,16 +2,15 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 
 import Pokemons from './Pokemons'
-import { Pokemon } from '../../types'
-import { getAllPokemons } from '../../selectors'
+import { getPokemonsLength } from '../../selectors'
 
 import '../../styles/gallery.scss'
 
 const Gallery: React.FC = () => {
-    const pokemons: Pokemon[] = useSelector(getAllPokemons)
+    const pokemonsLength: number = useSelector(getPokemonsLength)
     return (
         <div className='gallery'>
-            { pokemons.length ? <Pokemons /> : '' }
+            { pokemonsLength ? <Pokemons /> : <h1>We haven't pokemons for you, sorry</h1> }
         </div>
     )
 }

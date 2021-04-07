@@ -2,7 +2,7 @@ import React, { useMemo } from 'react'
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
-import { getPokemonByID } from '../../selectors';
+import { getPokemonByID, getPokemonsLength } from '../../selectors';
 import { AbilityType, Pokemon, PokemonStat, PokemonType } from '../../types';
 
 import '../../styles/aboutPage.scss'
@@ -16,38 +16,48 @@ const PokemonPage: React.FC = () => {
     const { id } = useParams() as PokemonParams
     const numberId = Number(id)
     const currentPokemon: Pokemon = useSelector(getPokemonByID(numberId))[0]
-    
-    // Cretae array with tpes elements
-    const typesElementsArr: JSX.Element[] = useMemo(() => {
-        return currentPokemon.types.map((type: PokemonType) => {
-            return <div key={type.type.name} className='type'><span>{type.type.name}</span></div>
-        })
-    }, [currentPokemon.types])
+    const pokemonsCount: number = useSelector(getPokemonsLength)
+
+    // Create array with tpes elements
+    const typesElementsArr: JSX.Element[] | undefined = useMemo(() => {
+        if (currentPokemon)
+            return currentPokemon.types.map((type: PokemonType) => {
+                return <div key={type.type.name} className='type'><span>{type.type.name}</span></div>
+            })
+    }, [currentPokemon])
 
     // Create array with abilities elements
-    const abilitiesElementsArr: JSX.Element[] = useMemo(() => {
-        return currentPokemon.abilities.map((ability: AbilityType) => {
-            return <div key={ability.ability.name} className='ability'><span>{ability.ability.name}</span></div>
-        })
-    }, [currentPokemon.abilities])
+    const abilitiesElementsArr: JSX.Element[] | undefined = useMemo(() => {
+        if (currentPokemon)
+            return currentPokemon.abilities.map((ability: AbilityType) => {
+                return <div key={ability.ability.name} className='ability'><span>{ability.ability.name}</span></div>
+            })
+    }, [currentPokemon])
 
     // Create array with stats elements
-    const statsElementsArr: JSX.Element[] = useMemo(() => {
-        return currentPokemon.stats.map((stat: PokemonStat) => {
-            const statFieldStyle = {
-                width: `${stat.base_stat * 2}px`
-            }
-            return (
-                <div key={stat.stat.name}>
-                    <div className='info-text'><span>{stat.stat.name}</span></div>
-                    <div className='stat-wrap'>
-                        <div style={statFieldStyle} className='stat-field'></div>
-                        <span>{stat.base_stat}</span>
+    const statsElementsArr: JSX.Element[] | undefined = useMemo(() => {
+        if (currentPokemon)
+            return currentPokemon.stats.map((stat: PokemonStat) => {
+                const statFieldStyle = {
+                    width: `${stat.base_stat * 2}px`
+                }
+                return (
+                    <div key={stat.stat.name}>
+                        <div className='info-text'><span>{stat.stat.name}</span></div>
+                        <div className='stat-wrap'>
+                            <div style={statFieldStyle} className='stat-field'></div>
+                            <span>{stat.base_stat}</span>
+                        </div>
                     </div>
-                </div>
-            )
-        })
-    }, [currentPokemon.stats])
+                )
+            })
+    }, [currentPokemon])
+
+    if ((pokemonsCount === 0) || (currentPokemon === undefined)) return (
+        <div className='about f-c'>
+            <h1>We have not this pokemon</h1>
+        </div>
+    )
 
     return (
         <div className='about'>
