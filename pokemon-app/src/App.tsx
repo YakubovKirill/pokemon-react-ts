@@ -1,20 +1,22 @@
-import axios from 'axios';
-import { useEffect, useState } from 'react';
-import { connect, useDispatch } from 'react-redux';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import axios from 'axios'
+import { useEffect, useState } from 'react'
+import { connect, useDispatch } from 'react-redux'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
-import Header from './components/Header/Header';
-import Footer from './components/Footer/Footer';
-import Gallery from './components/Gallery/Gallery';
-import PokemonPage from './components/PokemonPage/PokemonPage';
-import { IInputPokemon, IInputPokemonsData, Pokemon, PokemonInput } from './types';
-import { addPokemonArr } from './actions';
+import Header from './components/Header/Header'
+import Footer from './components/Footer/Footer'
+import Gallery from './components/Gallery/Gallery'
+import PokemonPage from './components/PokemonPage/PokemonPage'
+import { IInputPokemon, IInputPokemonsData, Pokemon, PokemonInput } from './types'
+import { addPokemonArr } from './actions'
 
 import './styles/mainStyle.scss'
 import './styles/footer.scss'
 
 const LIMIT = process.env.REACT_APP_LIMIT
 const START_FROM = process.env.REACT_APP_START_POKEMONS_FROM
+const HOME_PAGE_PATH = process.env.REACT_APP_PATH_DEFAULT
+const POKEMON_ID_PATH = process.env.REACT_APP_POKEMON_ID_PATH
 const POKEMON_API_PATH = process.env.REACT_APP_PATH_POKEMON_API
 const POKEMON_IMG_PATH = process.env.REACT_APP_PATH_POKEMON_IMAGE
 
@@ -83,8 +85,8 @@ function App() {
           <Header />
           <div className='content f-c'>
             <Switch>
-              <Route path='/' exact component={Gallery} />
-              <Route path='/pokemon/:id' exact component={PokemonPage} />
+              <Route path={HOME_PAGE_PATH} exact component={Gallery} />
+              <Route path={POKEMON_ID_PATH} exact component={PokemonPage} />
             </Switch>
           </div>
           <Footer />

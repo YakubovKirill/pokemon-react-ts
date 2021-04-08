@@ -4,12 +4,12 @@ import { Pokemon } from "../types";
 
 const selectAllPokemons = (state: RootStateOrAny) => state.pokemons
 
-export const getAllPokemons = createSelector(
+export const getAllPokemonsSelector = createSelector(
     selectAllPokemons,
     pokemons => pokemons
 )
 
-export const getPokemonByID = (id: number) => createSelector(
+export const getPokemonByIDSelector = (id: number) => createSelector(
     selectAllPokemons,
     pokemons => pokemons.filter((pokemon: Pokemon) => {
         if (isNaN(id)) return pokemon.id === 0
@@ -17,7 +17,7 @@ export const getPokemonByID = (id: number) => createSelector(
     })
 )
 
-export const getPokemonsLength = createSelector(
+export const getPokemonsLengthSelector = createSelector(
     selectAllPokemons,
     pokemons => pokemons.length
 )

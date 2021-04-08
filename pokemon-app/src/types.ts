@@ -2,26 +2,26 @@
 
 // Main pokemon type
 export type Pokemon = {
-    abilities: AbilityType[]
-    baseExperience: number
-    height: number
-    id: number
-    name: string
-    stats: PokemonStat[]
-    types: PokemonType[]
-    weight: number
+    abilities: AbilityType[],
+    baseExperience: number,
+    height: number,
+    id: number,
+    name: string,
+    stats: PokemonStat[],
+    types: PokemonType[],
+    weight: number,
     image: string
 }
 
 export type ActionType = {
-    type: ACTIONS
+    type: ACTIONS,
     payload: Pokemon[]
 }
 
 export type AbilityType = {
     ability: {
         name: string
-    }
+    },
     is_hidden: boolean
 }
 
@@ -31,7 +31,7 @@ export type PokemonInput = {
 }
 
 export type PokemonStat = {
-    base_stat: number
+    base_stat: number,
     stat: {
         name: string
     }
@@ -50,13 +50,13 @@ export interface IInputPokemonsData {
 }
 
 export interface IInputPokemon {
-    abilities: AbilityType[]
-    base_experience: number
-    height: number
-    id: number
-    name: string
-    stats: PokemonStat[]
-    types: PokemonType[]
+    abilities: AbilityType[],
+    base_experience: number,
+    height: number,
+    id: number,
+    name: string,
+    stats: PokemonStat[],
+    types: PokemonType[],
     weight: number
 }
 

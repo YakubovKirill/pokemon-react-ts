@@ -2,7 +2,7 @@ import React, { useMemo } from 'react'
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
-import { getPokemonByID, getPokemonsLength } from '../../selectors';
+import { getPokemonByIDSelector, getPokemonsLengthSelector } from '../../selectors';
 import { AbilityType, Pokemon, PokemonStat, PokemonType } from '../../types';
 
 import '../../styles/aboutPage.scss'
@@ -10,13 +10,22 @@ import '../../styles/aboutPage.scss'
 // Interface for pokemon ID from router
 interface PokemonParams {
     id?: number
-}
+};
+
+const LABLES = {
+    NO_POKEMON_MESSAGE: 'We have not this pokemon',
+    STATS_LABEL: 'Stats',
+    PARAMETRES_LABEL: 'Parametres',
+    WEIGHT_LABEL: 'Weight',
+    HEIGHT_LABEL: 'Height',
+    BASE_EPIRIENCE_LABEL: 'Base expirience'
+} as const
 
 const PokemonPage: React.FC = () => {
     const { id } = useParams() as PokemonParams
     const numberId = Number(id)
-    const currentPokemon: Pokemon = useSelector(getPokemonByID(numberId))[0]
-    const pokemonsCount: number = useSelector(getPokemonsLength)
+    const currentPokemon: Pokemon = useSelector(getPokemonByIDSelector(numberId))[0]
+    const pokemonsCount: number = useSelector(getPokemonsLengthSelector)
 
     // Create array with tpes elements
     const typesElementsArr: JSX.Element[] | undefined = useMemo(() => {
@@ -53,9 +62,9 @@ const PokemonPage: React.FC = () => {
             })
     }, [currentPokemon])
 
-    if ((pokemonsCount === 0) || (currentPokemon === undefined)) return (
+    if ( !pokemonsCount || !currentPokemon) return (
         <div className='about f-c'>
-            <h1>We have not this pokemon</h1>
+            <h1>{LABLES.NO_POKEMON_MESSAGE}</h1>
         </div>
     )
 
@@ -76,23 +85,23 @@ const PokemonPage: React.FC = () => {
 
             <div className='info f-c'>
                 <div className='info-block'>
-                    <div className='info-header f-c'><span>Stats</span></div>
+                    <div className='info-header f-c'><span>{LABLES.STATS_LABEL}</span></div>
                     {statsElementsArr}
                 </div>
                 <div className='info-block'>
-                    <div className='info-header f-c'><span>Parametres</span></div>
+                    <div className='info-header f-c'><span>{LABLES.PARAMETRES_LABEL}</span></div>
                     <table>
                         <tbody>
                             <tr>
-                                <td>Weigth</td>
+                                <td>{LABLES.WEIGHT_LABEL}</td>
                                 <td>{currentPokemon.weight}</td>
                             </tr>
                             <tr>
-                                <td>Height</td>
+                                <td>{LABLES.HEIGHT_LABEL}</td>
                                 <td>{currentPokemon.height}</td>
                             </tr>
                             <tr>
-                                <td>Base expirience</td>
+                                <td>{LABLES.BASE_EPIRIENCE_LABEL}</td>
                                 <td>{currentPokemon.baseExperience}</td>
                             </tr>
                         </tbody>

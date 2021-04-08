@@ -1,7 +1,8 @@
-import React, { PropsWithChildren, useMemo } from 'react'
-import { Link } from 'react-router-dom'
+import React from 'react'
 
-import { ABILITY_COLORS, Pokemon, AbilityType } from '../../types'
+import { ABILITY_COLORS,  AbilityType, Pokemon } from '../../types'
+import { PropsWithChildren, useMemo } from 'react'
+import { Link } from 'react-router-dom'
 
 const Ability: React.FC<PropsWithChildren<AbilityType>> = (ability: AbilityType): JSX.Element => {
     const abilityColor = useMemo(() => {
