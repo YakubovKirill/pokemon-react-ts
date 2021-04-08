@@ -1,26 +1,26 @@
-import React from 'react'
-import { useSelector } from 'react-redux'
+import React from 'react';
+import { useSelector } from 'react-redux';
 
-import { getAllPokemonsSelector } from '../../selectors'
-import { Pokemon } from '../../types'
-import PokemonCard from './PokemonCard'
+import { getAllPokemonsSelector } from '../../selectors';
+import { Pokemon } from '../../types';
+import PokemonCard from './PokemonCard';
 
 const Pokemons: React.FC = () => {
-    const pokemons: Pokemon[] = useSelector(getAllPokemonsSelector)
-    const pokemonComponents: JSX.Element[] = []
-    pokemons.forEach((pokemon: Pokemon) => {
-        const component: JSX.Element = <PokemonCard 
-            key={pokemon.id}
-            {...pokemon}
-        />
-        pokemonComponents.push(component)
-    })
+	const pokemons: Pokemon[] = useSelector(getAllPokemonsSelector);
+	const pokemonComponents: JSX.Element[] = [];
+	pokemons.forEach((pokemon: Pokemon) => {
+		const component: JSX.Element = <PokemonCard 
+			key={pokemon.id}
+			{...pokemon}
+		/>;
+		pokemonComponents.push(component);
+	});
 
-    return (
-        <>
-            {pokemonComponents}
-        </>
-    )
-}
+	return (
+		<>
+			{pokemonComponents}
+		</>
+	);
+};
 
-export default React.memo(Pokemons)
+export default React.memo(Pokemons);

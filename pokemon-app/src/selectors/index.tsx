@@ -1,23 +1,24 @@
-import { createSelector} from "reselect"
-import { RootStateOrAny} from 'react-redux'
-import { Pokemon } from "../types"
+import { createSelector, OutputSelector} from "reselect";
+import { RootStateOrAny} from 'react-redux';
+import { Pokemon } from "../types";
 
-const selectAllPokemons = (state: RootStateOrAny) => state.pokemons
+const selectAllPokemons = (state: RootStateOrAny) => state.pokemons;
 
 export const getAllPokemonsSelector = createSelector(
-    selectAllPokemons,
-    pokemons => pokemons
-)
+	selectAllPokemons,
+	pokemons => pokemons
+);
 
-export const getPokemonByIDSelector = (id: number) => createSelector(
-    selectAllPokemons,
-    pokemons => pokemons.filter((pokemon: Pokemon) => {
-        if (isNaN(id)) return pokemon.id === 0
-        return pokemon.id === id
-    })
-)
+export const getPokemonByIDSelector = (id: number): 
+	OutputSelector<Pokemon, Pokemon, (res: Pokemon) => Pokemon> => createSelector(
+	selectAllPokemons,
+	pokemons => pokemons.find((pokemon: Pokemon) => {
+		if (isNaN(id)) return pokemon.id === 0;
+		return pokemon.id === id;
+	})
+);
 
 export const getPokemonsLengthSelector = createSelector(
-    selectAllPokemons,
-    pokemons => pokemons.length
-)
+	selectAllPokemons,
+	pokemons => pokemons.length
+);
