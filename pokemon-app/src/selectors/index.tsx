@@ -1,6 +1,6 @@
-import { createSelector} from "reselect";
+import { createSelector} from "reselect"
 import { RootStateOrAny} from 'react-redux'
-import { Pokemon } from "../types";
+import { Pokemon } from "../types"
 
 const selectAllPokemons = (state: RootStateOrAny) => state.pokemons
 
