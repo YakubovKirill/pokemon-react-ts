@@ -1,13 +1,12 @@
-import {ACTIONS, ActionType, Pokemon} from '../types';
+import {ACTIONS, Pokemon} from '../types';
 
-const pokemonsReducer = (state: Pokemon[] = [], action: ActionType): Pokemon[] => {
-	switch (action.type) {
-	case ACTIONS.ADD_POKEMON_ARR:
-		state = [];
-		state = [...action.payload];
-		return state;
-	default:
-		return state;
+const pokemonsReducer = (
+	state: Pokemon[] = [], action: {type: ACTIONS, payload: Pokemon[]}): Pokemon[] => {
+	switch(action.type) {
+	    case ACTIONS.ADD_SAGA_POKEMON:
+		    if (!action.payload) return state;
+		    return action.payload;
+	    default: return state;
 	}
 };
 

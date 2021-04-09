@@ -63,7 +63,8 @@ export interface IInputPokemon {
 // Enums
 
 export enum ACTIONS {
-    ADD_POKEMON_ARR
+    ADD_SAGA_POKEMON = 'ADD_SAGA_POKEMON',
+    FETCH_POKEMON = 'FETCH_POKEMON'
 }
 
 export enum ABILITY_COLORS {

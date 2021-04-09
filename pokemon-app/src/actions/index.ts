@@ -1,8 +1,17 @@
-import { ACTIONS, ActionType, Pokemon } from "../types";
+import { ACTIONS, Pokemon } from "../types";
 
-export const addPokemonArr = (pokemonsArr: Pokemon[] = []): ActionType => {
+export const addPokemonAction = (data: Pokemon[]): {
+		type: ACTIONS;
+		payload: Pokemon[];
+	} => {
 	return {
-		type: ACTIONS.ADD_POKEMON_ARR,
-		payload: pokemonsArr
+		type: ACTIONS.ADD_SAGA_POKEMON,
+		payload: data
+	};
+};
+
+export const fetchPokemon = (): {type: string} => {
+	return {
+		type: ACTIONS.FETCH_POKEMON
 	};
 };
