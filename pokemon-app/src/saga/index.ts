@@ -3,10 +3,10 @@ import { call, CallEffect, ForkEffect, put, PutEffect, takeEvery } from 'redux-s
 import { addPokemonAction } from '../actions';
 import { ACTIONS, IInputPokemon, IInputPokemonsData, Pokemon, PokemonInput } from '../types';
 
-const POKEMON_API_PATH = process.env.REACT_APP_PATH_POKEMON_API;
-const LIMIT = process.env.REACT_APP_LIMIT;
-const START_FROM = process.env.REACT_APP_START_POKEMONS_FROM;
-const POKEMON_IMG_PATH = process.env.REACT_APP_PATH_POKEMON_IMAGE;
+const POKEMON_API_PATH = 'https://pokeapi.co/api/v2/pokemon';
+const LIMIT = 100;
+const START_FROM = 0;
+const POKEMON_IMG_PATH = 'https://pokeres.bastionbot.org/images/pokemon/';
 
 const firstLetterUpperCase = (word: string) => {
 	const wordArr = word.split('');

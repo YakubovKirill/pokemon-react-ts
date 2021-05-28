@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 import '../../styles/header.scss';
 
-const DEFAULT_PATH = process.env.REACT_APP_PATH_DEFAULT;
+const DEFAULT_PATH = '/';
 const PROJECT_NAME = 'Pokemonix';
 
 const Header: React.FC = () => {

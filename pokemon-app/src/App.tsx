@@ -12,8 +12,8 @@ import './styles/mainStyle.scss';
 import './styles/footer.scss';
 import { fetchPokemon } from './actions';
 
-const HOME_PAGE_PATH = process.env.REACT_APP_PATH_DEFAULT;
-const POKEMON_ID_PATH = process.env.REACT_APP_POKEMON_ID_PATH;
+const HOME_PAGE_PATH = '/';
+const POKEMON_ID_PATH = '/pokemon/:id';
 
 function App() {
 	const dispatch = useDispatch();

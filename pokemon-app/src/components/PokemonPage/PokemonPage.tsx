@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useRef } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
@@ -65,8 +65,6 @@ const PokemonPage: React.FC = () => {
 			});
 	}, [currentPokemon]);
 
-	const pokemonRef = useRef<HTMLDivElement>(null);
-
 	useEffect(() => {
 		window.scrollTo({top: 0});
 	}, []);
@@ -78,7 +76,7 @@ const PokemonPage: React.FC = () => {
 	);
 
 	return (
-		<div className='about' ref={pokemonRef}>
+		<div className='about'>
 			<div className='pokemon-header f-c'><span>{currentPokemon.name}</span></div>
 			<div className='abilities f-c'>
 				{typesElementsArr}
