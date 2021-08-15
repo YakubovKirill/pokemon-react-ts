@@ -1,0 +1,121 @@
+@import 'variables';
+@import 'font-size.module.scss';
+
+.about {
+    width: 90%;
+    max-width: 700px;
+    height: max-content;
+    background-color: $white-color;
+    margin: 30px 0px;
+    border-radius: $header-footer-border-radius;
+    box-shadow: $about-box-shadow;
+    padding: 20px;
+    .pokemon-header {
+        width: 100%;
+        height: max-content;
+        font-size: $large-font-size;
+        span {
+            margin: 10px 0px;
+        }
+    }
+
+    .pokemon-image {
+        width: 100%;
+        height: max-content;
+        .img-wrap {
+            width: 100%;
+            img { height: 350px;}
+        }
+    }
+
+    .abilities {
+        width: 100%;
+        height: max-content;
+        flex-wrap: wrap;
+        margin: 20px 0px;
+        .ability {
+            font-size: $medium-font-size;
+            margin: 10px;
+            height: max-content;
+            width: max-content;
+            padding: 7px 10px;
+            border-radius: 10px;
+            border: 2px solid $stat-background-color;
+            &:hover {
+                cursor: pointer;
+                background-color: $stat-background-color;
+                color: $text-color-white;
+            }
+            span { margin: 10px 5px;}
+        }
+        .type {
+            background-color: $stat-color;
+            border-radius: 5px;
+            padding: 5px;
+            margin: 0px 10px;
+            font-size: $text-font-size;
+            padding: 5px 10px;
+            &:hover { cursor: pointer;}
+        }
+    }
+
+    .info {
+        height: max-content;
+        width: 100%;
+        flex-wrap: wrap;
+        .info-block {
+            box-shadow: $info-block-shadow;
+            width: 250px;
+            height: max-content;
+            border-radius: 10px;
+            margin: 10px;
+            overflow: hidden;
+            table {
+                width: 100%;
+                padding: 10px;
+
+                tr {
+                    height: 40px;
+                    font-size: 18px;
+                }
+            }
+            .info-header {
+                height: max-content;
+                span {
+                    margin: 15px 0px;
+                    font-size: $medium-font-size;
+                }
+            }
+            .info-text {
+                padding: 10px;
+            }
+
+            .stat-wrap {
+                display: flex;
+                .stat-field {
+                    height: 10px;
+                    background-color: $stat-color;
+                    margin: 10px;
+                    border-radius: 5px;
+                }
+
+                .stat-field-1 { width: 100px; }
+                .stat-field-2 { width: 140px; }
+                .stat-field-3 { width: 60px; }
+                span {
+                    margin: 8px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .about .pokemon-header {
+        font-size: $large-font-size - 5px;
+    }
+
+    .about .pokemon-image .img-wrap img {
+        height: 250px;
+    }
+}

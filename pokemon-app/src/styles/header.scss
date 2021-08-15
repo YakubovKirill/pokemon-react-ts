@@ -1,0 +1,22 @@
+@import 'variables';
+@import 'font-size.module.scss';
+
+header {
+    height: max-content;
+    border-bottom-left-radius: $header-footer-border-radius;
+    border-bottom-right-radius: $header-footer-border-radius;
+    background-color: $white-color;
+    box-shadow: 0px 5px 10px #5858580f;
+    .logo {
+        margin: 20px 10px;
+        font-size: $large-font-size;
+    }
+}
+
+@media screen and (max-width: 1280px) {
+    header .logo { font-size: $large-font-size - 5px; }
+}
+  
+@media screen and (max-width: 768px) {
+    header .logo { font-size: $large-font-size - 10px; }
+}
